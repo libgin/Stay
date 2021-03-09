@@ -6,65 +6,47 @@
 //
 
 import UIKit
-import Nuke
+//import Nuke
 
-class HotelCell : UITableViewCell {
+//protocol HotelCellDel {
+//    func scrollCollection(toRow: Int)
+//}
+
+//enum CellState: Int {
+//    case Photos = 0
+//    case Location = 1
+//    case Terms = 2
+//    case Ratings = 3
+//    case CheckIn = 4
+//}
+
+
+class HotelCell : UITableViewCell, HotelCellDelegate {
     
-    @IBOutlet weak var hotelPreviewImage: UIImageView!
-    @IBOutlet weak var typeLbl: UILabel!
-    @IBOutlet weak var reviewScoreLbl: UILabel!
-    @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var addressLbl: UILabel!
-    @IBOutlet weak var freeCancellationStack: UIStackView!
-    @IBOutlet weak var prePaymentStack: UIStackView!
-    @IBOutlet weak var priceNightLbl: UILabel!
-    @IBOutlet weak var pricelbl: UILabel!
-    @IBOutlet weak var taxeLbl: UILabel!
-    @IBOutlet weak var rewardPercentLbl: UILabel!
-    @IBOutlet weak var rewardAmountLbl: UILabel!
-    @IBOutlet weak var favoriteBtn: UIButton!
-    @IBOutlet weak var arrowView: UIView!
-    
-    @IBAction func favoriteBtnAction(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        if sender.isSelected {
-            favoriteBtn.setImage(#imageLiteral(resourceName: "favorite_selected"), for: .normal)
-        } else {
-            favoriteBtn.setImage(#imageLiteral(resourceName: "favorite"), for: .normal)
-        }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-   
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.contentView.layoutIfNeeded()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-   }
-    
-    func configureWith(value: Hotel) {
-        backgroundView?.backgroundColor = .clear
-        arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(Double(-45) * .pi/180))
-        let imageRequest = ImageRequest(url: NSURL(string: value.image)! as URL,
-                                        processors: [ImageProcessors.Resize(size: CGSize(width: 132, height: 231))])
-        
-        Nuke.loadImage(with: imageRequest, into: hotelPreviewImage)
-        
-        typeLbl.text = value.type
-        reviewScoreLbl.text = "\(value.reviewsScore)"
-        titleLbl.text = value.title
-        addressLbl.text = value.address
-        priceNightLbl.text = "\(value.currency.symbol)\(value.priceNight)"
-        pricelbl.text = "\(value.currency.symbol)\(value.price) "
-        taxeLbl.text = "+\(value.currency.symbol)\(value.tax) taxes & fees"
-        rewardPercentLbl.text = "\(value.rewardPercent)% reward back"
-        rewardAmountLbl.text = "\(value.currency.symbol)\(value.rewardAmount)"
-        
-        
-        freeCancellationStack.isHidden = !value.freeCancellation
-        prePaymentStack.isHidden = value.prepayment
-    }
+    @IBOutlet /*fileprivate*/ weak var collectionView: UICollectionView!
+
 }
 
+extension HotelCell {
+    
+    func setCollectionViewDataSourceDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(_ dataSourceDelegate: D, forRow row: Int) {
+        collectionView?.register(UINib.init(nibName: String.init(describing: CollectionCell.self), bundle: nil), forCellWithReuseIdentifier: String.init(describing: CollectionCell.self))
+        collectionView.delegate = dataSourceDelegate
+        collectionView.dataSource = dataSourceDelegate
+        collectionView.tag = row
+        collectionView.setContentOffset(collectionView.contentOffset, animated: false) // Stops collection view if it was scrolling.
+        collectionView.reloadData()
+    }
+    
+    func scrollCollection(toRow: Int) {
+        DispatchQueue.main.async {
+            self.collectionView.scrollToItem(at: IndexPath(item: toRow, section: 0), at: .left, animated: true)
+        }
+        collectionView.layoutSubviews()
+    }
+    
+    var collectionViewOffset: CGFloat {
+        set { collectionView.contentOffset.x = newValue }
+        get { return collectionView.contentOffset.x }
+    }
+}
