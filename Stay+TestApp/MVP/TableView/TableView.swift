@@ -49,11 +49,11 @@ class TableViewDataSource: NSObject, UITableViewDataSource, UITableViewDelegate 
         
         hotelCellDelegate = tableViewCell
         delegates.append(tableViewCell)
-        print("Count        /////", delegates.count)
+        
         tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
         tableViewCell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
         
-        tableViewCell.collectionView.scrollToItem(at: IndexPath(item: state, section: 0), at: .left, animated: false)
+        //tableViewCell.collectionView.scrollToItem(at: IndexPath(item: state, section: 0), at: .left, animated: false)
         
         
     }

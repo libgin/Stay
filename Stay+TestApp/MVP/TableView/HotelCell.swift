@@ -41,7 +41,9 @@ extension HotelCell {
     
     func scrollCollection(toRow: Int) {
         DispatchQueue.main.async {
+            self.collectionView.isPagingEnabled = false
             self.collectionView.scrollToItem(at: IndexPath(item: toRow, section: 0), at: .left, animated: true)
+            self.collectionView.isPagingEnabled = true
         }
         collectionView.layoutSubviews()
     }

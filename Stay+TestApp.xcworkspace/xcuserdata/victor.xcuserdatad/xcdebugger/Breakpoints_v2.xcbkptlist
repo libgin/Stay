@@ -356,7 +356,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "619F472A-A354-4B0F-93B0-773A20DE6BF8 - e6c995c68bbdb983"
+                  uuid = "619F472A-A354-4B0F-93B0-773A20DE6BF8 - e6c995c68bbdb9a0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -366,12 +366,12 @@
                   urlString = "file:///Users/victor/job/Stay/Stay+TestApp/MVP/TableView/HotelCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
                   offsetFromSymbolStart = "175">
                </Location>
                <Location
-                  uuid = "619F472A-A354-4B0F-93B0-773A20DE6BF8 - ac1c4458d4f93b9c"
+                  uuid = "619F472A-A354-4B0F-93B0-773A20DE6BF8 - ac1c4458d4f93bfd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -381,8 +381,8 @@
                   urlString = "file:///Users/victor/job/Stay/Stay+TestApp/MVP/TableView/HotelCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
                   offsetFromSymbolStart = "104">
                </Location>
             </Locations>
@@ -398,8 +398,8 @@
             filePath = "Stay+TestApp/MVP/TableView/HotelCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "collectionViewOffset"
             landmarkType = "24">
          </BreakpointContent>

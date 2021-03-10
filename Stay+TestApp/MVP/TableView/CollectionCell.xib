@@ -26,13 +26,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bus-yJ-6Hh">
+                                <rect key="frame" x="55" y="5" width="240" height="217"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5bn-in-vua">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="230" id="9y4-sH-duu"/>
+                            <constraint firstItem="bus-yJ-6Hh" firstAttribute="leading" secondItem="BY8-6q-Fhg" secondAttribute="leading" constant="55" id="BZe-mN-Iuw"/>
                             <constraint firstItem="0Yw-a7-GSO" firstAttribute="centerX" secondItem="BY8-6q-Fhg" secondAttribute="centerX" id="aed-3t-o6Z"/>
+                            <constraint firstAttribute="trailing" secondItem="bus-yJ-6Hh" secondAttribute="trailing" constant="56" id="f9Q-HC-Ewh"/>
                             <constraint firstItem="0Yw-a7-GSO" firstAttribute="centerY" secondItem="BY8-6q-Fhg" secondAttribute="centerY" id="oTY-pq-Dpy"/>
                             <constraint firstAttribute="width" constant="351" id="pC6-x6-6RL"/>
+                            <constraint firstAttribute="bottom" secondItem="bus-yJ-6Hh" secondAttribute="bottom" constant="8" id="qqr-BM-plq"/>
+                            <constraint firstItem="bus-yJ-6Hh" firstAttribute="top" secondItem="BY8-6q-Fhg" secondAttribute="top" constant="5" id="s6y-DB-bcW"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -47,12 +61,16 @@
             <size key="customSize" width="152" height="83"/>
             <connections>
                 <outlet property="bargroundView" destination="BY8-6q-Fhg" id="uNN-7F-qx1"/>
+                <outlet property="collectionView" destination="bus-yJ-6Hh" id="BkX-m2-CBt"/>
                 <outlet property="lbl" destination="0Yw-a7-GSO" id="L6z-B9-hsl"/>
             </connections>
             <point key="canvasLocation" x="210.86956521739131" y="95.089285714285708"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
